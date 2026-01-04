@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "webpack-dev-server": "^4.15.1"
+  },
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build"
   }
 }

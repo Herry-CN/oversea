@@ -19,9 +19,18 @@ app.use('/api/admin', adminRoutes);
 
 // 启动数据库并监听端口
 const PORT = 3001;
-(async () => {
-  await sequelize.sync({ alter: true });
-  app.listen(PORT, () => {
-    console.log(`Backend running at http://localhost:${PORT}`);
-  });
-})(); 
+
+if (require.main === module) {
+  (async () => {
+    try {
+      await sequelize.sync({ alter: true });
+      app.listen(PORT, () => {
+        console.log(`Backend running at http://localhost:${PORT}`);
+      });
+    } catch (error) {
+      console.error('Database connection failed:', error);
+    }
+  })();
+}
+
+module.exports = app; 
