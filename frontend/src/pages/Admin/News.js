@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 import { Table, Button, Modal, Form, Input, DatePicker, message, Popconfirm } from 'antd';
 import axios from 'axios';
 import dayjs from 'dayjs';
@@ -8,12 +8,15 @@ const AdminNews = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [form] = Form.useForm();
+  const [coverUrl, setCoverUrl] = useState('');
 
   const fetchNews = () => {
     axios.get('/api/news').then(res => setNews(res.data));
   };
 
-  useEffect(() => { fetchNews(); }, []);
+  useEffect(() => {
+    fetchNews();
+  }, []);
 
   const onFinish = async (values) => {
     setLoading(true);
@@ -26,6 +29,7 @@ const AdminNews = () => {
       setModalOpen(false);
       fetchNews();
       form.resetFields();
+      setCoverUrl('');
     } catch {
       message.error('添加失败');
     }
@@ -40,35 +44,54 @@ const AdminNews = () => {
 
   const handleOpen = () => {
     setModalOpen(true);
-    setTimeout(() => form.resetFields(), 0);
+    setTimeout(() => {
+      form.resetFields(); // 清空所有字段
+      setCoverUrl('');
+    }, 0);
   };
 
   return (
     <div>
-      <Button type="primary" onClick={handleOpen} style={{ marginBottom: 16 }}>新增新闻</Button>
-      <Table dataSource={news} rowKey="id" bordered
+      <Button type="primary" onClick={handleOpen} style={{ marginBottom: 16 }}>
+        新增新闻
+      </Button>
+      <Table
+        dataSource={news}
+        rowKey="id"
+        bordered
         columns={[
           { title: '标题', dataIndex: 'title' },
           { title: '内容', dataIndex: 'content', ellipsis: true },
-          { title: '发布时间', dataIndex: 'publishedAt', render: t => t && dayjs(t).format('YYYY-MM-DD') },
-          { title: '操作', render: (_, r) => (
-            <Popconfirm title="确定删除？" onConfirm={() => handleDelete(r.id)}>
-              <Button danger size="small">删除</Button>
-            </Popconfirm>
-          ) },
+          {
+            title: '发布时间',
+            dataIndex: 'publishedAt',
+            render: t => t && dayjs(t).format('YYYY-MM-DD')
+          },
+          {
+            title: '操作',
+            render: (_, r) => (
+              <Popconfirm title="确定删除？" onConfirm={() => handleDelete(r.id)}>
+                <Button danger size="small">删除</Button>
+              </Popconfirm>
+            )
+          },
         ]}
       />
-      <Modal open={modalOpen} title="新增新闻" onCancel={() => setModalOpen(false)} footer={null} destroyOnClose forceRender>
+      <Modal
+        open={modalOpen}
+        title="新增新闻"
+        onCancel={() => setModalOpen(false)}
+        footer={null}
+        destroyOnClose
+        forceRender
+      >
         <Form
           form={form}
           layout="vertical"
           onFinish={onFinish}
           autoComplete="off"
-          initialValues={{
-            title: '',
-            content: '',
-            publishedAt: null,
-            cover: ''
+          onValuesChange={(changed, all) => {
+            if ('cover' in changed) setCoverUrl(changed.cover);
           }}
         >
           <Form.Item
@@ -78,7 +101,6 @@ const AdminNews = () => {
           >
             <Input autoComplete="new-title" />
           </Form.Item>
-
           <Form.Item
             name="content"
             label="内容"
@@ -86,7 +108,6 @@ const AdminNews = () => {
           >
             <Input.TextArea rows={4} autoComplete="new-content" />
           </Form.Item>
-
           <Form.Item
             name="publishedAt"
             label="发布时间"
@@ -95,16 +116,28 @@ const AdminNews = () => {
           >
             <DatePicker style={{ width: '100%' }} />
           </Form.Item>
-
-          <Form.Item
-            name="cover"
-            label="封面"
-          >
+          <Form.Item name="cover" label="封面">
             <Input autoComplete="new-cover" />
           </Form.Item>
-
+          {coverUrl && (
+            <div style={{ marginBottom: 16 }}>
+              <img
+                src={coverUrl}
+                alt="封面预览"
+                style={{
+                  maxWidth: 180,
+                  maxHeight: 120,
+                  borderRadius: 6,
+                  border: '1px solid #eee',
+                }}
+                onError={(e) => (e.target.style.display = 'none')}
+              />
+            </div>
+          )}
           <Form.Item>
-            <Button type="primary" htmlType="submit" loading={loading}>提交</Button>
+            <Button type="primary" htmlType="submit" loading={loading}>
+              提交
+            </Button>
           </Form.Item>
         </Form>
       </Modal>
