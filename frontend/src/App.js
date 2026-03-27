@@ -13,6 +13,7 @@ import Services from './pages/Services';
 import News from './pages/News';
 import Inquiry from './pages/Inquiry';
 import Admin from './pages/Admin';
+import CustomerProfile from './pages/CustomerProfile';
 
 const { Header, Content, Footer } = Layout;
 
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/news" element={<News />} />
           <Route path="/inquiry" element={<Inquiry />} />
+          <Route path="/customer-profile" element={<CustomerProfile />} />
           <Route path="/admin/*" element={<Admin />} />
         </Routes>
       </Content>
