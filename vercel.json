@@ -1,13 +1,11 @@
 {
   "version": 2,
-  "outputDirectory": "frontend/dist",
+  "installCommand": "cd zentk-website && npm ci",
+  "buildCommand": "cd zentk-website && npm run build",
+  "outputDirectory": "zentk-website/dist",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index.js"
-    },
-    {
-      "source": "/((?!api/.*).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
