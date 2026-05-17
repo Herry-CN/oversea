@@ -33,10 +33,10 @@ export function Navbar() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
             <div className="relative">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-sm">Z</span>
+              <div className="w-8 h-8 rounded-lg bg-[#030712] flex items-center justify-center shadow-lg ring-1 ring-white/10">
+                <img src="/logo.svg" alt="Zentk" className="w-7 h-7" />
               </div>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-500 to-emerald-500 opacity-0 group-hover:opacity-30 blur-md transition-opacity" />
+              <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-30 blur-md transition-opacity bg-gradient-to-br from-brand-violet to-brand-cyan" />
             </div>
             <span className="text-white font-bold text-lg tracking-tight">
               ZENTK
