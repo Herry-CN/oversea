@@ -16,7 +16,7 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-[#030712] flex items-center justify-center ring-1 ring-white/10">
-                <img src="/logo.svg" alt="Zentk" className="w-7 h-7" />
+                <img src="/logo.png" alt="Zentk" className="w-7 h-7 object-contain" />
               </div>
               <span className="text-white font-bold text-lg">ZENTK</span>
             </div>
