@@ -32,11 +32,16 @@ module.exports = {
         },
         // Brand colors
         brand: {
-          blue: '#3B82F6',
-          'blue-light': '#60a5fa',
-          'blue-dark': '#2563eb',
-          green: '#10B981',
-          'green-light': '#34d399',
+          violet: '#7c3aed',
+          purple: '#8b5cf6',
+          fuchsia: '#d946ef',
+          pink: '#ec4899',
+          orange: '#f97316',
+          amber: '#f59e0b',
+          lime: '#a3e635',
+          emerald: '#10b981',
+          cyan: '#06b6d4',
+          blue: '#3b82f6',
         },
         dark: {
           base: '#030712',
@@ -50,9 +55,9 @@ module.exports = {
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
       },
       backgroundImage: {
-        'hero-gradient': 'radial-gradient(ellipse at 50% 0%, rgba(59,130,246,0.15) 0%, transparent 60%)',
-        'card-gradient': 'linear-gradient(135deg, rgba(59,130,246,0.05) 0%, rgba(16,185,129,0.05) 100%)',
-        'cta-gradient': 'linear-gradient(135deg, #1e3a5f 0%, #0f2240 100%)',
+        'hero-gradient': 'radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.16) 0%, transparent 60%)',
+        'card-gradient': 'linear-gradient(135deg, rgba(124,58,237,0.06) 0%, rgba(236,72,153,0.04) 45%, rgba(6,182,212,0.05) 100%)',
+        'cta-gradient': 'linear-gradient(135deg, #2e1065 0%, #0b1220 100%)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
