@@ -39,7 +39,7 @@ export function HeroSection() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(59,130,246,0.5)';
+        ctx.fillStyle = 'rgba(124,58,237,0.5)';
         ctx.fill();
       });
 
@@ -52,7 +52,7 @@ export function HeroSection() {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(59,130,246,${0.15 * (1 - dist / 130)})`;
+            ctx.strokeStyle = `rgba(124,58,237,${0.16 * (1 - dist / 130)})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -88,7 +88,7 @@ export function HeroSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59,130,246,0.12) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,0.13) 0%, transparent 70%)',
           zIndex: 2,
         }}
       />
@@ -97,10 +97,10 @@ export function HeroSection() {
 
       {/* Flowing line accent */}
       <div className="absolute top-1/2 left-0 right-0 h-px overflow-hidden" style={{ zIndex: 3 }}>
-        <div className="h-full bg-gradient-to-r from-transparent via-blue-500/40 to-transparent animate-flow" />
+        <div className="h-full bg-gradient-to-r from-transparent via-violet-500/40 to-transparent animate-flow" />
       </div>
       <div className="absolute top-1/3 left-0 right-0 h-px overflow-hidden" style={{ zIndex: 3 }}>
-        <div className="h-full bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent animate-flow" style={{ animationDelay: '1.5s' }} />
+        <div className="h-full bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent animate-flow" style={{ animationDelay: '1.5s' }} />
       </div>
 
       {/* Content */}
@@ -114,7 +114,7 @@ export function HeroSection() {
         {/* Main heading */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 animate-slide-up">
           Take Your{' '}
-          <span className="gradient-text">AI Hardware</span>
+          <span className="gradient-text">Hard Tech</span>
           <br />
           to Every Corner
           <br />
@@ -123,7 +123,7 @@ export function HeroSection() {
 
         {/* Subheading */}
         <p className="text-lg sm:text-xl text-[#94a3b8] max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          ZENTK is a full-chain globalization partner for AI hardware and innovative consumer electronics —
+          ZENTK is a full-chain globalization partner for hard tech and innovative consumer electronics —
           from <span className="text-white font-medium">regulatory compliance</span> and{' '}
           <span className="text-white font-medium">supply chain optimization</span> to{' '}
           <span className="text-white font-medium">channel distribution</span> in the EU, US, and beyond.

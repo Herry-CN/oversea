@@ -24,6 +24,20 @@ export function Footer() {
               Hard Tech Global Go-To-Market Partner.
               Connecting Chinese innovation to the world's most demanding markets.
             </p>
+            <div className="flex flex-col gap-2 text-[#94a3b8] text-sm mb-6">
+              <div className="flex items-center gap-2">
+                <span className="text-[#64748b] text-xs w-14">Contact</span>
+                <span className="text-white/90">Sasha</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[#64748b] text-xs w-14">Email</span>
+                <a className="text-white/90 hover:underline" href="mailto:sasha@ZENTKglobal.com">sasha@ZENTKglobal.com</a>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-[#64748b] text-xs w-14 mt-0.5">Address</span>
+                <span className="text-white/90">Unit 1603, Tung Ning Building, 2 Hillier Street, Sheung Wan, Hong Kong</span>
+              </div>
+            </div>
             <a
               href="#contact"
               className="btn-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-white text-sm font-semibold"
