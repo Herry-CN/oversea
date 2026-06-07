@@ -11,6 +11,8 @@ export function ContactSection() {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const interests = [
     'Product Go-to-Market',
@@ -29,8 +31,36 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In real integration, post to /api/inquiries
-    setSubmitted(true);
+    if (submitting) return;
+
+    setSubmitting(true);
+    setSubmitError(null);
+
+    fetch('/api/inquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: formState.name,
+        company: formState.company,
+        email: formState.email,
+        jobTitle: formState.jobTitle,
+        interest: formState.interest,
+        message: formState.message,
+      }),
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data?.error || 'Failed to submit');
+        }
+        setSubmitted(true);
+      })
+      .catch((err: unknown) => {
+        setSubmitError(err instanceof Error ? err.message : 'Failed to submit');
+      })
+      .finally(() => {
+        setSubmitting(false);
+      });
   };
 
   return (
@@ -207,13 +237,20 @@ export function ContactSection() {
 
                 <button
                   type="submit"
-                  className="btn-primary w-full py-4 rounded-xl text-white font-semibold text-base flex items-center justify-center gap-2"
+                  disabled={submitting}
+                  className="btn-primary w-full py-4 rounded-xl text-white font-semibold text-base flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Consult Our Experts
+                  {submitting ? 'Submitting...' : 'Consult Our Experts'}
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>
+
+                {submitError && (
+                  <div className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-red-200 text-sm">
+                    {submitError}
+                  </div>
+                )}
 
                 <p className="text-[#475569] text-xs text-center">
                   No spam. No sales pressure. Just expert guidance. Response within 24 hours.
@@ -228,7 +265,7 @@ export function ContactSection() {
                 </div>
                 <h3 className="text-white font-bold text-xl">Message Received</h3>
                 <p className="text-[#94a3b8] text-sm max-w-xs">
-                  One of our experts will reach out within 24 business hours with a personalized strategy assessment.
+                  Sasha will reach out within 24 business hours with a personalized strategy assessment.
                 </p>
               </div>
             )}
