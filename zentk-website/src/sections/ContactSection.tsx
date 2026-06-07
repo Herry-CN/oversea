@@ -50,8 +50,10 @@ export function ContactSection() {
     })
       .then(async (res) => {
         if (!res.ok) {
-          const data = await res.json().catch(() => ({}));
-          throw new Error(data?.error || 'Failed to submit');
+          const data = await res.json().catch(() => null);
+          const text = data ? '' : await res.text().catch(() => '');
+          const message = data?.error || text || `Request failed (${res.status})`;
+          throw new Error(message);
         }
         setSubmitted(true);
       })
