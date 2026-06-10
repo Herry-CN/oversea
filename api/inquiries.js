@@ -45,7 +45,7 @@ module.exports = async (req, res) => {
     String(v ?? '').replace(/[<>&]/g, (ch) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[ch]));
 
   const from = process.env.RESEND_FROM || 'ZENTK Website <onboarding@resend.dev>';
-  const to = ['sasha@ZENTKglobal.com', 'herry.li@zentkglobel.com'];
+  const to = ['sasha@ZENTKglobal.com', 'herry.li@ZENTKglobal.com'];
   const subject = `[ZENTK Website] ${safe(company)} — ${safe(name)}`;
   const html = `
     <div style="font-family: ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial; line-height: 1.6;">
