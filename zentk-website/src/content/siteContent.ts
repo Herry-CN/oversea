@@ -7,6 +7,18 @@ const escapeXml = (value: string) =>
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;');
 
+const realReferenceImages = {
+  morphHero: '/reference-images/morph-hero.jpg',
+  morphMaterial: '/reference-images/morph-material.jpg',
+  morphStory: '/reference-images/morph-story.jpg',
+  flyHero: '/reference-images/fly-y5-hero.jpg',
+  flyDetail: '/reference-images/fly-y5-detail.jpg',
+  flyCockpit: '/reference-images/fly-y5-cockpit.jpg',
+  reazEditorial: '/reference-images/reaz-editorial.jpg',
+  reazLifestyle: '/reference-images/reaz-lifestyle.jpg',
+  reazLighting: '/reference-images/reaz-lighting.jpg',
+};
+
 type EditorialVariant =
   | 'launch'
   | 'flagship'
@@ -179,12 +191,12 @@ export const heroContent = {
     {
       title: 'Retail-ready launch kits',
       meta: 'Positioning, shelf strategy, buyer narrative',
-      image: editorialImage({ label: 'Launch Board', title: 'Retail-ready launch kits', variant: 'launch' }),
+      image: realReferenceImages.morphStory,
     },
     {
       title: 'Flagship category staging',
       meta: 'Inspired by advanced mobility and water-tech hero presentation',
-      image: editorialImage({ label: 'Flagship Stage', title: 'Flagship category staging', variant: 'flagship' }),
+      image: realReferenceImages.flyHero,
     },
   ],
 };
@@ -198,19 +210,19 @@ export const brandNarrative = {
       title: 'Product-language translation',
       copy:
         'We turn engineering strengths into buyer-facing language that works for distributors, retailers and category managers.',
-      image: editorialImage({ label: 'Material Story', title: 'Product-language translation', variant: 'macro' }),
+      image: realReferenceImages.morphMaterial,
     },
     {
       title: 'Launch atmosphere',
       copy:
         'The strongest hard tech launches feel inevitable. We combine visual mood, channel timing and narrative sequencing to create that sense of inevitability.',
-      image: editorialImage({ label: 'Showroom Mood', title: 'Launch atmosphere', variant: 'showroom' }),
+      image: realReferenceImages.flyDetail,
     },
     {
       title: 'Lifestyle relevance',
       copy:
         'Premium consumer electronics win when they fit into real spaces and routines, not only spec sheets. That informs our GTM storytelling and regional activation.',
-      image: editorialImage({ label: 'Living Context', title: 'Lifestyle relevance', variant: 'lifestyle' }),
+      image: realReferenceImages.reazLifestyle,
     },
   ],
   influenceMarks: [
@@ -419,36 +431,42 @@ export const referenceGallery = [
     source: 'MorphGears',
     description:
       'The lesson: material close-ups and purpose-led copy can make complex products feel immediate and desirable.',
-    image: editorialImage({ label: 'MorphGears Signal', title: 'Precision product storytelling', variant: 'macro' }),
+    image: realReferenceImages.morphHero,
   },
   {
     title: 'Flagship technology staging',
     source: 'FLY-H2O',
     description:
       'The lesson: bold flagship framing and cinematic scale help advanced products feel category-defining.',
-    image: editorialImage({ label: 'FLY-H2O Signal', title: 'Flagship technology staging', variant: 'flagship' }),
+    image: realReferenceImages.flyCockpit,
   },
   {
     title: 'Lifestyle integration',
     source: 'Reazenable',
     description:
       'The lesson: atmospheric living-space imagery makes technology feel relevant, tactile and premium.',
-    image: editorialImage({ label: 'Reazenable Signal', title: 'Lifestyle integration', variant: 'lifestyle' }),
+    image: realReferenceImages.reazEditorial,
   },
 ];
 
 export const referenceSources = [
   {
-    name: 'FLY-H2O brand logo',
-    file: '/reference-images/fly-logo.png',
-    origin: 'https://www.fly-h2o.cn/logo.png',
-    usage: 'Reference influences row and source archive',
+    name: 'MorphGears product hero',
+    file: realReferenceImages.morphHero,
+    origin: 'https://www.morphgears.com/cdn/shop/files/20260617-170606.jpg?v=1781687207&width=1920',
+    usage: 'Hero and reference gallery asset',
   },
   {
-    name: 'Reazenable brand logo',
-    file: '/reference-images/reaz-logo.png',
-    origin: 'https://reazenable.com/cdn/shop/files/LOGO.png?crop=center&height=256&v=1783664709&width=256',
-    usage: 'Reference influences row and source archive',
+    name: 'FLY-H2O flagship image',
+    file: realReferenceImages.flyHero,
+    origin: 'https://oss.fly-h2o.cn/20260628/coloImg-1_1782624522555.jpg',
+    usage: 'Hero flagship staging asset',
+  },
+  {
+    name: 'Reazenable lifestyle image',
+    file: realReferenceImages.reazLifestyle,
+    origin: 'https://reazenable.com/cdn/shop/files/DSC09276.jpg?v=1783653282&width=1920',
+    usage: 'Brand narrative lifestyle asset',
   },
 ];
 

@@ -1,14 +1,38 @@
 [
   {
-    "name": "FLY-H2O brand logo",
-    "file": "/reference-images/fly-logo.png",
-    "origin": "https://www.fly-h2o.cn/logo.png",
-    "usage": "Influence markers and local archive"
+    "name": "MorphGears hero image",
+    "file": "/reference-images/morph-hero.jpg",
+    "origin": "https://www.morphgears.com/cdn/shop/files/20260617-170606.jpg?v=1781687207&width=1920",
+    "usage": "Reference gallery and visual archive"
   },
   {
-    "name": "Reazenable brand logo",
-    "file": "/reference-images/reaz-logo.png",
-    "origin": "https://reazenable.com/cdn/shop/files/LOGO.png?crop=center&height=256&v=1783664709&width=256",
-    "usage": "Influence markers and local archive"
+    "name": "MorphGears material image",
+    "file": "/reference-images/morph-material.jpg",
+    "origin": "https://www.morphgears.com/cdn/shop/files/19.jpg?v=1781178500&width=3840",
+    "usage": "Brand narrative material close-up"
+  },
+  {
+    "name": "FLY-H2O flagship image",
+    "file": "/reference-images/fly-y5-hero.jpg",
+    "origin": "https://oss.fly-h2o.cn/20260628/coloImg-1_1782624522555.jpg",
+    "usage": "Hero flagship staging asset"
+  },
+  {
+    "name": "FLY-H2O cockpit detail",
+    "file": "/reference-images/fly-y5-cockpit.jpg",
+    "origin": "https://oss.fly-h2o.cn/20260628/3-3_1782624506788.jpg",
+    "usage": "Reference gallery detail asset"
+  },
+  {
+    "name": "Reazenable editorial image",
+    "file": "/reference-images/reaz-editorial.jpg",
+    "origin": "https://reazenable.com/cdn/shop/files/20260717-110118.jpg?v=1784257341&width=1920",
+    "usage": "Reference gallery editorial asset"
+  },
+  {
+    "name": "Reazenable lifestyle image",
+    "file": "/reference-images/reaz-lifestyle.jpg",
+    "origin": "https://reazenable.com/cdn/shop/files/DSC09276.jpg?v=1783653282&width=1920",
+    "usage": "Brand narrative lifestyle asset"
   }
 ]
