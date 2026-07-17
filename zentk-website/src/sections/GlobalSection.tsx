@@ -1,126 +1,78 @@
+import { SectionHeading } from '../components/SectionHeading';
+import { complianceMarks, marketFootprint } from '../content/siteContent';
+
 export function GlobalSection() {
-  const regions = [
-    {
-      name: 'Europe',
-      markets: 'Germany · Italy · Hungary · Romania',
-      channels: 'MediaMarkt, Carrefour, Saturn',
-      focus: 'New Energy · Smart Hardware',
-      color: 'blue',
-      icon: '🇪🇺',
-    },
-    {
-      name: 'North America',
-      markets: 'United States (Silicon Valley / Bay Area)',
-      channels: 'Best Buy, Amazon US, Target',
-      focus: 'Consumer Electronics · AI Devices',
-      color: 'green',
-      icon: '🇺🇸',
-    },
-    {
-      name: 'Asia Pacific',
-      markets: 'Singapore · India',
-      channels: 'Flipkart, Lazada, Offline Distribution',
-      focus: 'Tech Startups · E-Commerce',
-      color: 'blue',
-      icon: '🌏',
-    },
-    {
-      name: 'Africa',
-      markets: 'Kenya',
-      channels: 'Trade Channels · Infrastructure Projects',
-      focus: 'Energy · Trade Facilitation',
-      color: 'green',
-      icon: '🌍',
-    },
-  ];
-
-  const certifications = [
-    { name: 'CE', desc: 'European Conformity', region: 'EU' },
-    { name: 'FCC', desc: 'Federal Communications', region: 'USA' },
-    { name: 'FDA', desc: 'Food & Drug Admin', region: 'USA' },
-    { name: 'RoHS', desc: 'Hazardous Substances', region: 'EU' },
-    { name: 'UL', desc: 'Underwriters Lab', region: 'USA' },
-    { name: 'BIS', desc: 'Bureau of Indian Standards', region: 'India' },
-  ];
-
   return (
-    <section id="global" className="py-28 relative overflow-hidden" style={{ background: '#050d1a' }}>
+    <section id="global" className="section-shell bg-[#050d18]">
       <div className="section-divider" />
 
-      {/* Bg glow */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 60% 40% at 50% 100%, rgba(16,185,129,0.06) 0%, transparent 70%)'
-      }} />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="reveal grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
+          <SectionHeading
+            eyebrow="Markets"
+            title="An operating footprint shaped around how each region buys, regulates and scales."
+            accent="Not one-size-fits-all."
+            description="We keep the original market coverage but present it as a market control board with channel, category and posture signals for each region."
+          />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-10">
-        {/* Header */}
-        <div className="text-center mb-20 reveal">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-sm font-medium mb-6">
-            Global Footprint
+          <div className="grid gap-4 sm:grid-cols-2">
+            {marketFootprint.map((market, index) => (
+              <article
+                key={market.name}
+                className={`reveal reveal-delay-${(index % 4) + 1} rounded-[28px] border border-white/10 bg-white/[0.035] p-6`}
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <h3 className="font-display text-2xl text-white">{market.name}</h3>
+                  <span className="rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-slate-500">
+                    active market
+                  </span>
+                </div>
+
+                <div className="mt-5 space-y-4 text-sm leading-6">
+                  <div>
+                    <div className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Focus</div>
+                    <div className="mt-1 text-slate-200">{market.focus}</div>
+                  </div>
+                  <div>
+                    <div className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Channels</div>
+                    <div className="mt-1 text-slate-200">{market.channels}</div>
+                  </div>
+                  <div>
+                    <div className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Categories</div>
+                    <div className="mt-1 text-slate-200">{market.categories}</div>
+                  </div>
+                  <div>
+                    <div className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Market posture</div>
+                    <div className="mt-1 text-slate-300">{market.posture}</div>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-5 tracking-tight">
-            Four Continents,{' '}
-            <span className="gradient-text">One Partner</span>
-          </h2>
-          <p className="text-[#94a3b8] text-lg max-w-2xl mx-auto">
-            In-country resources in every major economic growth hub.
-            We move fast because the connections already exist.
-          </p>
         </div>
 
-        {/* Region cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-          {regions.map((r, i) => (
-            <div
-              key={r.name}
-              className={`reveal reveal-delay-${i + 1} card-hover rounded-2xl border border-[#1e2d42] bg-[#0a1120] p-7`}
-            >
-              <div className="flex items-start gap-4 mb-5">
-                <div className="text-3xl">{r.icon}</div>
-                <div>
-                  <h3 className="text-white font-bold text-xl">{r.name}</h3>
-                  <p className="text-[#64748b] text-sm mt-0.5">{r.markets}</p>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-3">
-                  <div className={`w-2 h-2 rounded-full flex-shrink-0 ${r.color === 'blue' ? 'bg-blue-400' : 'bg-emerald-400'}`} />
-                  <span className="text-[#94a3b8] text-sm">
-                    <span className="text-[#64748b] mr-2">Channels:</span>
-                    {r.channels}
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className={`w-2 h-2 rounded-full flex-shrink-0 ${r.color === 'blue' ? 'bg-blue-400' : 'bg-emerald-400'}`} />
-                  <span className="text-[#94a3b8] text-sm">
-                    <span className="text-[#64748b] mr-2">Focus:</span>
-                    {r.focus}
-                  </span>
-                </div>
+        <div className="reveal mt-12 rounded-[32px] border border-white/10 bg-white/[0.035] p-6 sm:p-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <div className="eyebrow">Compliance database</div>
+              <div className="mt-4 font-display text-3xl tracking-[-0.04em] text-white">
+                Market trust begins with technical legitimacy.
               </div>
             </div>
-          ))}
-        </div>
+            <p className="max-w-2xl text-sm leading-6 text-slate-300">
+              The site already referenced certification expertise. The redesign keeps that truth but reframes it as a visible commercial advantage for channel conversations.
+            </p>
+          </div>
 
-        {/* Compliance certifications */}
-        <div className="reveal">
-          <div className="rounded-2xl border border-[#1e2d42] bg-[#0a1120] p-8 lg:p-12">
-            <div className="text-center mb-10">
-              <h3 className="text-white text-2xl font-bold mb-2">International Compliance Expertise</h3>
-              <p className="text-[#64748b]">
-                Compliance is not overhead — it's your competitive moat in Western markets.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-              {certifications.map(cert => (
-                <div key={cert.name} className="flex flex-col items-center p-4 rounded-xl border border-[#1e2d42] bg-[#050d1a] hover:border-blue-500/40 transition-colors">
-                  <div className="text-2xl font-bold gradient-text-blue mb-1">{cert.name}</div>
-                  <div className="text-[#64748b] text-xs text-center mb-1">{cert.desc}</div>
-                  <div className="text-[#475569] text-xs font-medium">{cert.region}</div>
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {complianceMarks.map((mark) => (
+              <div key={mark} className="metric-chip text-center">
+                <div className="font-display text-3xl text-white">{mark}</div>
+                <div className="mt-2 text-[11px] uppercase tracking-[0.24em] text-slate-500">
+                  market signal
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

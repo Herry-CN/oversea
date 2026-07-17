@@ -1,77 +1,77 @@
+import { contactDetails, footerLinkGroups } from '../content/siteContent';
+
 export function Footer() {
   const year = new Date().getFullYear();
 
-  const links = {
-    Services: ['Strategy & Compliance', 'Global Distribution', 'Supply Chain', 'Retail Execution', 'Think Tank', 'Media & Growth'],
-    Markets: ['Europe (EU)', 'North America', 'Southeast Asia', 'India', 'Africa'],
-    Company: ['About ZENTK', 'Case Studies', 'News & Insights', 'Careers', 'Contact Us'],
-    'Compliance': ['CE Certification', 'FCC Authorization', 'FDA Registration', 'RoHS Compliance', 'UL Listing'],
-  };
-
   return (
-    <footer className="bg-[#030712] border-t border-[#1e2d42]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10 mb-14">
-          {/* Brand column */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-[#030712] flex items-center justify-center ring-1 ring-white/10">
-                <img src="/logo.png" alt="Zentk" className="w-7 h-7 object-contain" />
+    <footer className="border-t border-white/10 bg-[#030712]">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_1.8fr]">
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5">
+                <img src="/logo.png" alt="ZENTK" className="h-8 w-8 object-contain" />
               </div>
-              <span className="text-white font-bold text-lg">ZENTK</span>
+              <div>
+                <div className="font-display text-2xl tracking-[-0.04em] text-white">ZENTK</div>
+                <div className="text-[11px] uppercase tracking-[0.28em] text-slate-500">
+                  Hard Tech Globalization
+                </div>
+              </div>
             </div>
-            <p className="text-[#64748b] text-sm leading-relaxed mb-6 max-w-xs">
-              Hard Tech Global Go-To-Market Partner.
-              Connecting Chinese innovation to the world's most demanding markets.
+
+            <p className="max-w-md text-sm leading-7 text-slate-300">
+              A more editorial, product-aware global go-to-market partner for hard tech and innovative consumer electronics entering demanding international markets.
             </p>
-            <div className="flex flex-col gap-2 text-[#94a3b8] text-sm mb-6">
-              <div className="flex items-center gap-2">
-                <span className="text-[#64748b] text-xs w-14">Contact</span>
-                <span className="text-white/90">Sasha</span>
+
+            <div className="space-y-3 text-sm text-slate-300">
+              <div>
+                <div className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Contact</div>
+                <div className="mt-2 text-white">{contactDetails.contact}</div>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[#64748b] text-xs w-14">Email</span>
-                <a className="text-white/90 hover:underline" href="mailto:sasha@ZENTKglobal.com">sasha@ZENTKglobal.com</a>
+              <div>
+                <div className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Email</div>
+                <a className="mt-2 block text-white hover:text-cyan-200" href={`mailto:${contactDetails.email}`}>
+                  {contactDetails.email}
+                </a>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="text-[#64748b] text-xs w-14 mt-0.5">Address</span>
-                <span className="text-white/90">Unit 1603, Tung Ning Building, 2 Hillier Street, Sheung Wan, Hong Kong</span>
+              <div>
+                <div className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Address</div>
+                <div className="mt-2 leading-6 text-slate-300">{contactDetails.address}</div>
               </div>
             </div>
-            <a
-              href="#contact"
-              className="btn-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-white text-sm font-semibold"
-            >
+
+            <a href="#contact" className="btn-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white">
               Consult Our Experts
             </a>
           </div>
 
-          {/* Link columns */}
-          {Object.entries(links).map(([category, items]) => (
-            <div key={category}>
-              <h4 className="text-white font-semibold text-sm mb-4">{category}</h4>
-              <ul className="flex flex-col gap-2.5">
-                {items.map(item => (
-                  <li key={item}>
-                    <a href="#" className="text-[#64748b] text-sm hover:text-[#94a3b8] transition-colors">
-                      {item}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {Object.entries(footerLinkGroups).map(([category, items]) => (
+              <div key={category}>
+                <h4 className="text-[11px] uppercase tracking-[0.28em] text-slate-500">{category}</h4>
+                <ul className="mt-5 space-y-3">
+                  {items.map((item) => (
+                    <li key={item}>
+                      <a href="#contact" className="text-sm text-slate-300 transition-colors hover:text-white">
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 border-t border-[#1e2d42] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[#475569] text-sm">
-            © {year} ZENTK. All rights reserved. Hard Tech Global Partner.
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-slate-500">
+            © {year} ZENTK. All rights reserved. Hard tech global market-entry partner.
           </p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-[#475569] text-xs hover:text-[#94a3b8] transition-colors">Privacy Policy</a>
-            <a href="#" className="text-[#475569] text-xs hover:text-[#94a3b8] transition-colors">Terms of Service</a>
-            <a href="#" className="text-[#475569] text-xs hover:text-[#94a3b8] transition-colors">Cookie Policy</a>
+          <div className="flex flex-wrap items-center gap-6 text-[11px] uppercase tracking-[0.22em] text-slate-500">
+            <a href="#contact" className="transition-colors hover:text-white">Privacy Policy</a>
+            <a href="#contact" className="transition-colors hover:text-white">Terms of Service</a>
+            <a href="#contact" className="transition-colors hover:text-white">Cookie Policy</a>
           </div>
         </div>
       </div>

@@ -1,12 +1,13 @@
 import './index.css';
 import { Navbar, useReveal } from './components/Navbar';
 import { HeroSection } from './sections/HeroSection';
+import { BrandNarrativeSection } from './sections/BrandNarrativeSection';
 import { ServicesSection } from './sections/ServicesSection';
 import { WhyZentkSection } from './sections/WhySection';
 import { GlobalSection } from './sections/GlobalSection';
 import { CaseStudiesSection } from './sections/CaseStudiesSection';
 import { NewsSection } from './sections/NewsSection';
-import { CtaBannerSection } from './sections/CtaBannerSection';
+import { ReferenceGallerySection } from './sections/ReferenceGallerySection';
 import { ContactSection } from './sections/ContactSection';
 import { Footer } from './sections/Footer';
 
@@ -18,12 +19,13 @@ function App() {
       <Navbar />
       <main>
         <HeroSection />
+        <BrandNarrativeSection />
         <ServicesSection />
         <WhyZentkSection />
         <GlobalSection />
         <CaseStudiesSection />
         <NewsSection />
-        <CtaBannerSection />
+        <ReferenceGallerySection />
         <ContactSection />
       </main>
       <Footer />

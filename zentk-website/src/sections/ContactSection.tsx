@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { SectionHeading } from '../components/SectionHeading';
+import { contactDetails } from '../content/siteContent';
 
 export function ContactSection() {
   const [formState, setFormState] = useState({
@@ -66,84 +68,58 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-28 bg-[#030712] relative overflow-hidden">
+    <section id="contact" className="section-shell bg-[#030712] relative overflow-hidden">
       <div className="section-divider" />
 
-      {/* Bg accents */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-500/5 blur-3xl rounded-full pointer-events-none" />
+      <div className="absolute left-1/2 top-0 h-[320px] w-[640px] -translate-x-1/2 rounded-full bg-fuchsia-500/10 blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          {/* Left: Heading + Info */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-start gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16">
           <div className="reveal">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium mb-6">
-              Get In Touch
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
-              Ready to Take Your
-              <br />
-              <span className="gradient-text">Product Global?</span>
-            </h2>
-            <p className="text-[#94a3b8] text-lg leading-relaxed mb-10">
-              Tell us about your product and market ambitions.
-              Our experts will map a custom go-to-market strategy within 48 hours.
-            </p>
+            <SectionHeading
+              eyebrow="Contact"
+              title="Ready to shape the market entry architecture around your product?"
+              accent="Let's build it."
+              description="Tell us where the product is today, which markets matter first and where momentum is currently blocked. We will reply with a sharper launch path rather than a generic intro email."
+            />
 
-            {/* Contact details */}
-            <div className="flex flex-col gap-5">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 flex-shrink-0">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[#64748b] text-xs mb-0.5">Contact</div>
-                  <div className="text-white text-sm">Sasha</div>
-                </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="glass-panel rounded-[28px] p-5">
+                <div className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Contact</div>
+                <div className="mt-3 font-display text-2xl text-white">{contactDetails.contact}</div>
+                <p className="mt-2 text-sm leading-6 text-slate-300">{contactDetails.recipientNote}</p>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[#64748b] text-xs mb-0.5">Email</div>
-                  <a className="text-white text-sm hover:underline" href="mailto:sasha@ZENTKglobal.com">sasha@ZENTKglobal.com</a>
-                </div>
+              <div className="glass-panel rounded-[28px] p-5">
+                <div className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Response window</div>
+                <div className="mt-3 font-display text-2xl text-white">{contactDetails.responseTime}</div>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
+                  Direct conversation for founders, growth teams and export operators.
+                </p>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-300 flex-shrink-0">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
+            </div>
+
+            <div className="mt-6 rounded-[32px] border border-white/10 bg-white/[0.03] p-6">
+              <div className="space-y-5 text-sm text-slate-200">
+                <div>
+                  <div className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Email</div>
+                  <a className="mt-2 block text-base text-white hover:text-cyan-200" href={`mailto:${contactDetails.email}`}>
+                    {contactDetails.email}
+                  </a>
                 </div>
                 <div>
-                  <div className="text-[#64748b] text-xs mb-0.5">Address</div>
-                  <div className="text-white text-sm">Unit 1603, Tung Ning Building, 2 Hillier Street, Sheung Wan, Hong Kong</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0">
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-[#64748b] text-xs mb-0.5">Response Time</div>
-                  <div className="text-white text-sm">Within 24 business hours</div>
+                  <div className="text-[11px] uppercase tracking-[0.24em] text-slate-500">Address</div>
+                  <div className="mt-2 leading-6 text-slate-300">{contactDetails.address}</div>
                 </div>
               </div>
             </div>
 
-            {/* Trusted by logos placeholder */}
-            <div className="mt-12 pt-8 border-t border-[#1e2d42]">
-              <p className="text-[#475569] text-xs uppercase tracking-wider mb-4">Clients operate in markets including</p>
-              <div className="flex items-center gap-5 flex-wrap">
+            <div className="mt-10 border-t border-white/10 pt-8">
+              <p className="text-[11px] uppercase tracking-[0.26em] text-slate-500">
+                Clients operate in channels including
+              </p>
+              <div className="mt-4 flex flex-wrap items-center gap-5">
                 {['Best Buy', 'MediaMarkt', 'Amazon', 'CES', 'Flipkart'].map(brand => (
-                  <div key={brand} className="text-[#475569] text-sm font-semibold hover:text-[#94a3b8] transition-colors">
+                  <div key={brand} className="text-sm font-semibold text-slate-400 transition-colors hover:text-slate-200">
                     {brand}
                   </div>
                 ))}
@@ -151,41 +127,46 @@ export function ContactSection() {
             </div>
           </div>
 
-          {/* Right: Form */}
           <div className="reveal reveal-delay-2">
             {!submitted ? (
               <form
                 onSubmit={handleSubmit}
-                className="rounded-2xl border border-[#1e2d42] bg-[#0a1120] p-8 flex flex-col gap-5"
+                className="rounded-[32px] border border-white/10 bg-white/[0.04] p-8 flex flex-col gap-5 shadow-[0_40px_120px_rgba(2,6,23,0.35)]"
               >
+                <div>
+                  <div className="text-[11px] uppercase tracking-[0.26em] text-slate-500">
+                    Strategic intake form
+                  </div>
+                  <div className="mt-3 font-display text-3xl text-white">Tell us what needs to move.</div>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-[#94a3b8] text-xs font-medium mb-2 block">Full Name *</label>
+                    <label className="text-slate-300 text-xs font-medium mb-2 block">Full Name *</label>
                     <input
                       name="name"
                       required
                       value={formState.name}
                       onChange={handleChange}
                       placeholder="John Smith"
-                      className="w-full px-4 py-3 rounded-xl bg-[#030712] border border-[#1e2d42] text-white text-sm placeholder-[#374151] focus:border-blue-500/60 focus:outline-none focus:ring-1 focus:ring-blue-500/30 transition-colors"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#07111f] border border-white/10 text-white text-sm placeholder-slate-600 focus:border-cyan-300/50 focus:outline-none focus:ring-1 focus:ring-cyan-300/20 transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="text-[#94a3b8] text-xs font-medium mb-2 block">Company *</label>
+                    <label className="text-slate-300 text-xs font-medium mb-2 block">Company *</label>
                     <input
                       name="company"
                       required
                       value={formState.company}
                       onChange={handleChange}
                       placeholder="Acme Corp"
-                      className="w-full px-4 py-3 rounded-xl bg-[#030712] border border-[#1e2d42] text-white text-sm placeholder-[#374151] focus:border-blue-500/60 focus:outline-none focus:ring-1 focus:ring-blue-500/30 transition-colors"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#07111f] border border-white/10 text-white text-sm placeholder-slate-600 focus:border-cyan-300/50 focus:outline-none focus:ring-1 focus:ring-cyan-300/20 transition-colors"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-[#94a3b8] text-xs font-medium mb-2 block">Work Email *</label>
+                    <label className="text-slate-300 text-xs font-medium mb-2 block">Work Email *</label>
                     <input
                       name="email"
                       type="email"
@@ -193,32 +174,32 @@ export function ContactSection() {
                       value={formState.email}
                       onChange={handleChange}
                       placeholder="john@company.com"
-                      className="w-full px-4 py-3 rounded-xl bg-[#030712] border border-[#1e2d42] text-white text-sm placeholder-[#374151] focus:border-blue-500/60 focus:outline-none focus:ring-1 focus:ring-blue-500/30 transition-colors"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#07111f] border border-white/10 text-white text-sm placeholder-slate-600 focus:border-cyan-300/50 focus:outline-none focus:ring-1 focus:ring-cyan-300/20 transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="text-[#94a3b8] text-xs font-medium mb-2 block">Job Title *</label>
+                    <label className="text-slate-300 text-xs font-medium mb-2 block">Job Title *</label>
                     <input
                       name="jobTitle"
                       required
                       value={formState.jobTitle}
                       onChange={handleChange}
                       placeholder="CEO / Head of Business"
-                      className="w-full px-4 py-3 rounded-xl bg-[#030712] border border-[#1e2d42] text-white text-sm placeholder-[#374151] focus:border-blue-500/60 focus:outline-none focus:ring-1 focus:ring-blue-500/30 transition-colors"
+                      className="w-full px-4 py-3 rounded-2xl bg-[#07111f] border border-white/10 text-white text-sm placeholder-slate-600 focus:border-cyan-300/50 focus:outline-none focus:ring-1 focus:ring-cyan-300/20 transition-colors"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-[#94a3b8] text-xs font-medium mb-2 block">Primary Interest *</label>
+                  <label className="text-slate-300 text-xs font-medium mb-2 block">Primary Interest *</label>
                   <select
                     name="interest"
                     required
                     value={formState.interest}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-[#030712] border border-[#1e2d42] text-white text-sm focus:border-blue-500/60 focus:outline-none focus:ring-1 focus:ring-blue-500/30 transition-colors"
+                    className="w-full px-4 py-3 rounded-2xl bg-[#07111f] border border-white/10 text-white text-sm focus:border-cyan-300/50 focus:outline-none focus:ring-1 focus:ring-cyan-300/20 transition-colors"
                   >
-                    <option value="" disabled className="text-[#374151]">Select a service area...</option>
+                    <option value="" disabled className="text-slate-600">Select a service area...</option>
                     {interests.map(opt => (
                       <option key={opt} value={opt}>{opt}</option>
                     ))}
@@ -226,48 +207,44 @@ export function ContactSection() {
                 </div>
 
                 <div>
-                  <label className="text-[#94a3b8] text-xs font-medium mb-2 block">Tell us about your product & goals</label>
+                  <label className="text-slate-300 text-xs font-medium mb-2 block">Tell us about your product & goals</label>
                   <textarea
                     name="message"
                     value={formState.message}
                     onChange={handleChange}
                     rows={4}
                     placeholder="Describe your product, target markets, and the challenges you're facing..."
-                    className="w-full px-4 py-3 rounded-xl bg-[#030712] border border-[#1e2d42] text-white text-sm placeholder-[#374151] focus:border-blue-500/60 focus:outline-none focus:ring-1 focus:ring-blue-500/30 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-2xl bg-[#07111f] border border-white/10 text-white text-sm placeholder-slate-600 focus:border-cyan-300/50 focus:outline-none focus:ring-1 focus:ring-cyan-300/20 transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="btn-primary w-full py-4 rounded-xl text-white font-semibold text-base flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="btn-primary w-full py-4 rounded-2xl text-white font-semibold text-base flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {submitting ? 'Submitting...' : 'Consult Our Experts'}
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  <span aria-hidden="true">→</span>
                 </button>
 
                 {submitError && (
-                  <div className="rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-red-200 text-sm">
+                  <div className="rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-red-200 text-sm">
                     {submitError}
                   </div>
                 )}
 
-                <p className="text-[#475569] text-xs text-center">
-                  No spam. No sales pressure. Just expert guidance. Response within 24 hours.
+                <p className="text-slate-500 text-xs text-center">
+                  No spam. No sales pressure. Just structured guidance for the next launch move.
                 </p>
               </form>
             ) : (
-              <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-10 flex flex-col items-center justify-center gap-5 text-center min-h-[400px]">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
-                  <svg className="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+              <div className="rounded-[32px] border border-emerald-500/30 bg-emerald-500/5 p-10 flex flex-col items-center justify-center gap-5 text-center min-h-[420px]">
+                <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-3xl text-emerald-300">
+                  ✓
                 </div>
-                <h3 className="text-white font-bold text-xl">Message Received</h3>
-                <p className="text-[#94a3b8] text-sm max-w-xs">
-                  Sasha will reach out within 24 business hours with a personalized strategy assessment.
+                <h3 className="font-display text-3xl text-white">Message Received</h3>
+                <p className="text-slate-300 text-sm max-w-sm leading-6">
+                  Sasha will review the inquiry and reply with a more tailored market-entry perspective within 24 business hours.
                 </p>
               </div>
             )}
