@@ -73,6 +73,7 @@ export function HeroSection() {
                 src={heroContent.mediaCards[0].image}
                 alt={heroContent.mediaCards[0].title}
                 className="h-full w-full object-cover"
+                style={{ objectPosition: heroContent.mediaCards[0].imagePosition }}
                 loading="eager"
               />
               <div className="media-overlay" />
@@ -93,6 +94,7 @@ export function HeroSection() {
                 src={heroContent.mediaCards[1].image}
                 alt={heroContent.mediaCards[1].title}
                 className="h-full w-full object-cover"
+                style={{ objectPosition: heroContent.mediaCards[1].imagePosition }}
                 loading="eager"
               />
               <div className="media-overlay" />

@@ -12,6 +12,12 @@
     "usage": "Brand narrative material close-up"
   },
   {
+    "name": "MorphGears story image",
+    "file": "/reference-images/morph-story.jpg",
+    "origin": "https://www.morphgears.com/cdn/shop/files/20260618-170548.jpg?height=1147&v=1781773694",
+    "usage": "Hero support and case-study image"
+  },
+  {
     "name": "FLY-H2O flagship image",
     "file": "/reference-images/fly-y5-hero.jpg",
     "origin": "https://oss.fly-h2o.cn/20260628/coloImg-1_1782624522555.jpg",
@@ -21,7 +27,7 @@
     "name": "FLY-H2O cockpit detail",
     "file": "/reference-images/fly-y5-cockpit.jpg",
     "origin": "https://oss.fly-h2o.cn/20260628/3-3_1782624506788.jpg",
-    "usage": "Reference gallery detail asset"
+    "usage": "Case-study and reference detail asset"
   },
   {
     "name": "Reazenable editorial image",
@@ -34,5 +40,11 @@
     "file": "/reference-images/reaz-lifestyle.jpg",
     "origin": "https://reazenable.com/cdn/shop/files/DSC09276.jpg?v=1783653282&width=1920",
     "usage": "Brand narrative lifestyle asset"
+  },
+  {
+    "name": "Reazenable lighting image",
+    "file": "/reference-images/reaz-lighting.jpg",
+    "origin": "https://reazenable.com/cdn/shop/collections/20260717-104232.jpg?v=1784260216&width=832",
+    "usage": "Insight card retail execution asset"
   }
 ]

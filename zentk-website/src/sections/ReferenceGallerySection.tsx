@@ -22,7 +22,13 @@ export function ReferenceGallerySection() {
                 className={`reveal reveal-delay-${(index % 4) + 1} overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.035]`}
               >
                 <div className="media-frame h-72 overflow-hidden">
-                  <img src={item.image} alt={item.title} className="h-full w-full object-cover" loading="lazy" />
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-full w-full object-cover"
+                    style={{ objectPosition: item.imagePosition }}
+                    loading="lazy"
+                  />
                   <div className="media-overlay" />
                 </div>
                 <div className="space-y-3 p-5">

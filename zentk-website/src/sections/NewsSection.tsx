@@ -21,7 +21,13 @@ export function NewsSection() {
         <div className="mt-12 grid gap-6 lg:grid-cols-[1.08fr_0.92fr]">
           <article className="reveal overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.035]">
             <div className="media-frame h-[420px] overflow-hidden">
-              <img src={featured.image} alt={featured.title} className="h-full w-full object-cover" loading="lazy" />
+              <img
+                src={featured.image}
+                alt={featured.title}
+                className="h-full w-full object-cover"
+                style={{ objectPosition: featured.imagePosition }}
+                loading="lazy"
+              />
               <div className="media-overlay" />
               <div className="absolute inset-x-0 bottom-0 p-6">
                 <div className="inline-flex rounded-full border border-white/12 bg-black/25 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-white/80">
@@ -43,7 +49,13 @@ export function NewsSection() {
                 className={`reveal reveal-delay-${index + 2} grid gap-4 rounded-[32px] border border-white/10 bg-white/[0.035] p-4 sm:grid-cols-[180px_1fr]`}
               >
                 <div className="media-frame h-48 overflow-hidden rounded-[24px] sm:h-full">
-                  <img src={item.image} alt={item.title} className="h-full w-full object-cover" loading="lazy" />
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-full w-full object-cover"
+                    style={{ objectPosition: item.imagePosition }}
+                    loading="lazy"
+                  />
                   <div className="media-overlay" />
                 </div>
                 <div className="flex flex-col justify-between gap-4 p-2">

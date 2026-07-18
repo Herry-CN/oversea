@@ -43,6 +43,7 @@ export function BrandNarrativeSection() {
                 src={card.image}
                 alt={card.title}
                 className="h-72 w-full object-cover sm:h-[360px]"
+                style={{ objectPosition: card.imagePosition }}
                 loading="lazy"
               />
               <div className="media-overlay" />
